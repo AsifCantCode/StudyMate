@@ -1,22 +1,3 @@
-<style>
-  .fixed-table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  .fixed-table th, .fixed-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  .fixed-table .fixed-column {
-    position: -webkit-sticky;
-    position: sticky;
-    left: 0;
-    background-color: #000;
-    border-right: 2px solid #ddd;
-    z-index: 1;
-  }
-</style>
-
 ## Evaluations
 
 <table class="fixed-table">
