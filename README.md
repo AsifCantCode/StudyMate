@@ -9,79 +9,281 @@
 
 ## Introduction
 
-Provide a brief introduction to the project. Explain the purpose, objectives, and any background information necessary to understand the context of the project.
+StudyMate is a multilingual extractive question-answering application tailored for Bangla-speaking students. It compares and deploys models trained on Bangla datasets to deliver precise answers swiftly, enhancing academic learning and performance.
 
 ## Datasets
 
-### Dataset 1: BanglaRQA
+### BanglaRQA
 
 - Source: [BanglaRQA on Hugging Face](https://huggingface.co/datasets/sartajekram/BanglaRQA)
 
-### Dataset 2: SQuAD_bn
+### SQuAD_bn
 
 - Source: [SQuAD_bn on Hugging Face](https://huggingface.co/datasets/csebuetnlp/squad_bn)
 
 ### Filtered Dataset of BanglaRQA: BanglaRQA_to_SquadBn_fact_confirm
 
-- Description: Filtered dataset of BanglaRQA involving factoid and confirmation type questions in SQuAD_bn format
+Filtered dataset of BanglaRQA involving factoid and confirmation type questions converted to SQuAD_bn dataset format
+
 - Source: [BanglaRQA_to_SquadBn_fact_confirm on Hugging Face](https://huggingface.co/datasets/shakun42/BanglaRQA_to_SquadBn_fact_confirm)
 
 ## Models
 
-4 BERT based models were used: XLM-RoBERTa, mBert, BanglaBERT and IndicBERT were used on the 2 the datasets to produce a total of 8 models.
+4 BERT based models [XLM-RoBERTa](https://huggingface.co/FacebookAI/xlm-roberta-base), [mBert](https://huggingface.co/google-bert/bert-base-multilingual-cased), [BanglaBERT](https://huggingface.co/sagorsarker/bangla-bert-base) and [IndicBERT](https://huggingface.co/ai4bharat/indic-bert) were used on the 2 the datasets to produce a total of 8 models as follows:
 
 ### SQuAD_bn Trained Models
 
-#### Model 1: xlm-roberta-base-finetuned-squadBN
+#### XLM-RoBERTa
 
 - Link: [xlm-roberta-base-finetuned-squadBN](https://huggingface.co/AsifAbrar6/xlm-roberta-base-finetuned-squadBN)
 
-#### Model 2: bert-base-multilingual-cased-finetuned-squadBN
+#### mBERT
 
 - Link: [bert-base-multilingual-cased-finetuned-squadBN](https://huggingface.co/AsifAbrar6/bert-base-multilingual-cased-finetuned-squadBN)
 
-#### Model 3: bangla-bert-base-finetuned-squadbn
+#### BanglaBERT
 
 - Link: [bangla-bert-base-finetuned-squadbn](https://huggingface.co/shakun42/bangla-bert-base-finetuned-squadbn)
 
-#### Model 4: indic-bert-finetuned-squadbn
+#### IndicBERT
 
 - Link: [indic-bert-finetuned-squadbn](https://huggingface.co/shakun42/indic-bert-finetuned-squadbn)
 
-### BRQA Trained Models
+### BanglaRQA Trained Models
 
-#### Model 1: xlm-roberta-base-finetuned-RQA-confirmation
+#### XLM-RoBERTa
 
 - Link: [xlm-roberta-base-finetuned-RQA-confirmation](https://huggingface.co/AsifAbrar6/xlm-roberta-base-finetuned-RQA-confirmation)
 
-#### Model 2: bert-base-multilingual-cased-finetuned-RQA
+#### mBERT
 
 - Link: [bert-base-multilingual-cased-finetuned-RQA](https://huggingface.co/AsifAbrar6/bert-base-multilingual-cased-finetuned-RQA)
 
-#### Model 3: bangla-bert-base-finetuned-brqa-confirmation
+#### BanglaBERT
 
 - Link: [bangla-bert-base-finetuned-brqa-confirmation](https://huggingface.co/shakun42/bangla-bert-base-finetuned-brqa-confirmation)
 
-#### Model 4: indic-bert-finetuned-brqa-confirmation
+#### IndicBERT
 
 - Link: [indic-bert-finetuned-brqa-confirmation](https://huggingface.co/shakun42/indic-bert-finetuned-brqa-confirmation)
 
+## Code
+
+The code for training the models is provided in the repository
+
+## Running the application
+
+To run the application, just run the notebook [here](./Project_UI_Gradio.ipynb)
+
 ## Results
 
-### Model 1
+### F1 Score and Exact Match on SQuAD_bn dataset
 
-- Accuracy: [Provide accuracy]
-- Other Metrics: [Provide other relevant metrics]
+<table>
+  <thead>
+    <tr>
+      <th>Models</th>
+      <th>HasAns Total</th>
+      <th>HasAns Exact</th>
+      <th>HasAns F1</th>
+      <th>NoAns Total</th>
+      <th>NoAns Exact</th>
+      <th>NoAns F1</th>
+      <th>Exact</th>
+      <th>F1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bangla BERT</td>
+      <td>625</td>
+      <td>15.52</td>
+      <td>27.29</td>
+      <td>575</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>8.08</td>
+      <td>14.22</td>
+    </tr>
+    <tr>
+      <td>Indic BERT</td>
+      <td>625</td>
+      <td>12.80</td>
+      <td>27.61</td>
+      <td>575</td>
+      <td>0.17</td>
+      <td>0.17</td>
+      <td>6.75</td>
+      <td>14.46</td>
+    </tr>
+    <tr>
+      <td>XLM Roberta</td>
+      <td>625</td>
+      <td>45.28</td>
+      <td>60.13</td>
+      <td>575</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>23.58</td>
+      <td>31.31</td>
+    </tr>
+    <tr>
+      <td>mBert</td>
+      <td>625</td>
+      <td><strong>46.88</strong></td>
+      <td><strong>61.26</strong></td>
+      <td>575</td>
+      <td><strong>1.21</strong></td>
+      <td><strong>1.21</strong></td>
+      <td><strong>25.00</strong></td>
+      <td><strong>32.49</strong></td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>Table:</strong> Quantitative Evaluation of Various Models on SquadBN Dataset</p>
 
-### Model 2
+### F1 Score and Exact Match on BanglaRQA dataset
 
-- Accuracy: [Provide accuracy]
-- Other Metrics: [Provide other relevant metrics]
+<table>
+  <thead>
+    <tr>
+      <th>Models</th>
+      <th>HasAns Total</th>
+      <th>HasAns Exact</th>
+      <th>HasAns F1</th>
+      <th>NoAns Total</th>
+      <th>NoAns Exact</th>
+      <th>NoAns F1</th>
+      <th>Exact</th>
+      <th>F1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bangla BERT</td>
+      <td>868</td>
+      <td>26.84</td>
+      <td>41.91</td>
+      <td>314</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>19.71</td>
+      <td>30.77</td>
+    </tr>
+    <tr>
+      <td>Indic BERT</td>
+      <td>868</td>
+      <td>13.94</td>
+      <td>33.16</td>
+      <td>314</td>
+      <td><strong>2.23</strong></td>
+      <td><strong>2.23</strong></td>
+      <td>10.83</td>
+      <td>24.94</td>
+    </tr>
+    <tr>
+      <td>XLM Roberta</td>
+      <td>868</td>
+      <td><strong>64.98</strong></td>
+      <td><strong>81.53</strong></td>
+      <td>314</td>
+      <td>0.64</td>
+      <td>0.64</td>
+      <td><strong>47.89</strong></td>
+      <td><strong>60.04</strong></td>
+    </tr>
+    <tr>
+      <td>mBert</td>
+      <td>868</td>
+      <td>63.13</td>
+      <td>80.04</td>
+      <td>314</td>
+      <td>0.00</td>
+      <td>0.00</td>
+      <td>46.36</td>
+      <td>58.78</td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>Table:</strong> Quantitative Evaluation of Various Models on BanglaRQA Dataset</p>
 
-### Additional Results
+### Training and Validation loss
 
-- If you have more results, follow the same format as above for each additional model.
+## Loss with SQuAD_bn dataset
 
+<table>
+  <thead>
+    <tr>
+      <th>Models</th>
+      <th>Training Loss</th>
+      <th>Evaluation Loss</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bangla BERT</td>
+      <td>1.82</td>
+      <td>2.26</td>
+    </tr>
+    <tr>
+      <td>Indic BERT</td>
+      <td>2.79</td>
+      <td>2.74</td>
+    </tr>
+    <tr>
+      <td>XLM Roberta</td>
+      <td>1.17</td>
+      <td>1.39</td>
+    </tr>
+    <tr>
+      <td>mBert</td>
+      <td>0.88</td>
+      <td>1.46</td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>Table:</strong> Training and Evaluation Loss of Various Models on SquadBN Dataset</p>
+
+## Loss with BanglaRQA dataset
+
+<table>
+  <thead>
+    <tr>
+      <th>Models</th>
+      <th>Training Loss</th>
+      <th>Evaluation Loss</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Bangla BERT</td>
+      <td>1.07</td>
+      <td>1.41</td>
+    </tr>
+    <tr>
+      <td>Indic BERT</td>
+      <td>1.40</td>
+      <td>1.44</td>
+    </tr>
+    <tr>
+      <td>XLM Roberta</td>
+      <td>0.59</td>
+      <td>0.73</td>
+    </tr>
+    <tr>
+      <td>mBert</td>
+      <td>0.34</td>
+      <td>0.64</td>
+    </tr>
+  </tbody>
+</table>
+<p><strong>Table:</strong> Training and Evaluation Loss of Various Models on BanglaRQA Dataset</p>
+
+### Images
+
+The loss curves are provided in the folder [here](./Images/)
+
+<!--
 ## Evaluations
 
 | Model                | exact              | f1                 | total | HasAns_exact       | HasAns_f1          | HasAns_total | NoAns_exact         | NoAns_f1            | NoAns_total | best_exact         | best_exact_thresh | best_f1            | best_f1_thresh |
@@ -97,4 +299,4 @@ Provide a brief introduction to the project. Explain the purpose, objectives, an
 
 ```
 
-```
+``` -->
