@@ -207,9 +207,9 @@ To run the application, just run the notebook [here](./Project_UI_Gradio.ipynb)
 </table>
 <p><strong>Table:</strong> Quantitative Evaluation of Various Models on BanglaRQA Dataset</p>
 
-### Training and Validation loss
+## Training and Validation loss
 
-## Loss with SQuAD_bn dataset
+### Loss with SQuAD_bn dataset
 
 <table>
   <thead>
@@ -244,7 +244,7 @@ To run the application, just run the notebook [here](./Project_UI_Gradio.ipynb)
 </table>
 <p><strong>Table:</strong> Training and Evaluation Loss of Various Models on SquadBN Dataset</p>
 
-## Loss with BanglaRQA dataset
+### Loss with BanglaRQA dataset
 
 <table>
   <thead>
