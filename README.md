@@ -9,7 +9,7 @@
 
 ## Introduction
 
-StudyMate is a multilingual extractive question-answering application tailored for Bangla-speaking students. It compares and deploys models trained on Bangla datasets to deliver precise answers swiftly, enhancing academic learning and performance.
+StudyMate is a Bangla extractive question-answering application tailored for students. It compares and deploys models trained on Bangla datasets to deliver precise answers swiftly, enhancing academic learning and performance.
 
 ## Datasets
 
@@ -29,7 +29,7 @@ Filtered dataset of BanglaRQA involving factoid and confirmation type questions 
 
 ## Models
 
-4 BERT based models [XLM-RoBERTa](https://huggingface.co/FacebookAI/xlm-roberta-base), [mBert](https://huggingface.co/google-bert/bert-base-multilingual-cased), [BanglaBERT](https://huggingface.co/sagorsarker/bangla-bert-base) and [IndicBERT](https://huggingface.co/ai4bharat/indic-bert) were used on the 2 the datasets to produce a total of 8 models as follows:
+4 BERT based models [XLM-RoBERTa](https://huggingface.co/FacebookAI/xlm-roberta-base), [mBert](https://huggingface.co/google-bert/bert-base-multilingual-cased), [BanglaBERT](https://huggingface.co/sagorsarker/bangla-bert-base) and [IndicBERT](https://huggingface.co/ai4bharat/indic-bert) were used on 2 datasets to produce a total of 8 models as follows:
 
 ### SQuAD_bn Trained Models
 
